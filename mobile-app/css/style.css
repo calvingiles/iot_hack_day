@@ -1,0 +1,13 @@
+.start-overlay {
+	position: absolute;
+	top: 10%;
+	left: 5%;
+	height: 60%;
+	width: 90%;
+	background-color: #ffffff;
+	z-index: 1000;
+	text-align: center;
+
+	padding-top: 20%;
+}
+

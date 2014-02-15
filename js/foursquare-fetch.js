@@ -104,11 +104,11 @@ var limit = 10;
 var interval = setInterval( function() {
 
 	// w->e, n->s
-	/*if( numberOfPoints >= limit ) {
+	if( numberOfPoints >= limit ) {
 		console.log( "limit!!!");
 		end();
 		return;
-	}*/
+	}
 
 	if( nowLng < east ) {
 		nowLng += step; 

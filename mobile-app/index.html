@@ -7,9 +7,10 @@
 	
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
 	<link rel="stylesheet" href="js/leaflet/leaflet.css" />
+	<link rel="stylesheet" href="css/style.css" />
 	
-	<script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
+	<!--<script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>-->
 
 	<style>
 
@@ -28,7 +29,19 @@
 
 <div id="map"></div>
 
+<div class="start-overlay">
+	<p>
+		<label>Where you wanna go:</label>
+		<input class="geocomplete-input" type="text" />
+	</p>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="js/jquery.geocomplete.min.js"></script>
+
 <script src="js/leaflet/leaflet.js"></script>
+
 <script src="js/map.js"></script>
 
 
