@@ -5,4 +5,9 @@ $( document ).ready( function() {
     $( '.main, header' ).toggleClass( 'active' );
   });
 
+  // open info panel
+  $( '.more, .close-info' ).click( function( event ) {
+    $( '.map-panel, .info-panel' ).toggleClass( 'active' );
+  });
+
 });
