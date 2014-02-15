@@ -3,50 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title></title>
-  <meta name="description" content="">
+  <title>GET LOST</title>
+  <meta name="description" content="GET LOST">
   <meta name="viewport" content="width=device-width">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="text/javascript" src="//use.typekit.net/hig0fga.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   <link rel="stylesheet" href="css/styles.css"> 
   <script src="js/vendor/modernizr.min.js"></script> 
 </head>
 <body>
 
-  <header class="site-header">
+  <div class="map">
 
-    <h1 class="branding">
-      branding
-    </h1>
-    <button type="button" class="info-btn">i</button>
+    <iframe width='100%' height='100%' frameBorder='0' src='http://a.tiles.mapbox.com/v3/markdurrant.h9hobebb/mm/zoomwheel.html'></iframe>
 
-  </header> <!-- end .site-header -->
 
-  <section class="home-panel">
-    <div class="home-container">
+    <div class="main"> 
 
-      <img src="">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+      <img class="logo" src="../img/logo-ink.svg">
+      <h1>GET LOST</h1>
 
-      <form class="journey-details">
-        
-        <button type="button" class="find-me-btn">find me</button>
+      <p>Go the long way round with <b>GET LOST.</b> Enter a desination to find the road less traveled. <span class="more">More...</span></p>
+      <div class="info-btn"></div>
 
-        <label for="destination" class="destination-label">desination</label> 
-        <input type="text" name="destination" class="destination-input"/>
+      <input class="destination" type="text">
+      
+    </div> <!-- end .main -->
 
-        <button type="button" class="go-btn">Go</button>
-      </form> <!-- end .journey-details -->
-    </div> <!-- end .home-container -->
-  </section> <!-- end .home-panel -->
-
-  <section class="map-panel">
-    <div>GMAP GOES HERE</div>
-  </section> <!-- end .map-panel -->
-
-  <section class="info-panel">
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-  </section> <!-- end .info-panel -->
-  
+  </div> <!-- end .map -->
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.0.3.min.js"><\/script>')</script>
