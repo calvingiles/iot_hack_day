@@ -20,42 +20,73 @@
 //===============================================================================
 html, 
 body {
+  position: absolute;
+  max-height: 100%;
   width: 100%;
   height: 100%;
-  max-height: 100%;
-  position: absolute;
 }
 
 body {
   color: $ink;
-  font-family: "museo-sans-rounded", sans-serif;
   font-weight: 300;
   font-size: 16px;
+  font-family: "museo-sans-rounded", sans-serif;
 
   @media screen and ( min-width: 600px ) {
     font-size: 24px;
   }
 }
 
+header {
+  position: absolute;
+  top: -3.188em;
+  left: 0;
+  z-index: 999;
+  padding: 0.625em;
+  width: 11.750em;
+  height: 3.188em;
+  border-bottom-right-radius: 2px;
+  background: $brand;
+  cursor: pointer;
+
+  @include transition( opacity, .25s ); 
+
+  &.active {
+    top: 0;
+  }
+
+  @media screen and ( min-width: 600px ) {
+    font-size: 0.6666em;
+  }
+}
+
 .main {
+  position: absolute;
   top: 50%;
   left: 50%;
-  height: 17.188em;
-  width: 17.500em; 
-  margin-top: -( 17.188em / 2 );
+  z-index: 999; 
+  margin-top: -( 16.375em / 2 );
   margin-left: -( 17.500em / 2 );
   padding: 1.25em;
-  position: absolute;
-  background: $brand;
-  z-index: 999;
-  font-weight: 700;
+  width: 17.500em;
+  height: 16.375em;
   border-radius: 2px;
-  
+  background: $brand;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+
+  @include transition( all, .4s ); 
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 .logo {
   margin-bottom: 2em;
-  max-width: 336px;
+  width: 10.500em;
 }
 
 h1 {
@@ -63,30 +94,30 @@ h1 {
 }
 
 p {
-  font-weight: 300;
   margin: 0 0 1.25em;
+  font-weight: 300;
 }
 
 .more {
-  cursor: pointer;
   text-decoration: underline;
   font-weight: 700;
   font-style: italic;
+  cursor: pointer;
 }
 
 .destination {
-  font-size: 1.125em;
   padding: 0.125em 0.250em;
-  border-radius: 3px;
-  border: 3px solid $ink;
-  outline: 0;
   width: 100%;
-  -webkit-appearance:none;
+  outline: 0;
+  border: 3px solid $ink;
+  border-radius: 3px;
   background: $brand;
+  font-size: 1.125em;
+  -webkit-appearance:none;
 }
 
 .map {
+  position: absolute;
   width: 100%;
   height: 100%;
-  position: absolute;
 }
