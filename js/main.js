@@ -36,6 +36,7 @@ function getPlaces( lat, lng ) {
 
 			console.log( "success" );
 			console.log( data );
+			localStorage.setItem( lat.toString() + ";" + lng.toString(), JSON.stringify(data) );
 
 		}, 
 		error: function( xhr ) {
@@ -52,16 +53,16 @@ function getPlaces( lat, lng ) {
 
 }
 
-
-getPlaces( 40.7,-74 );
-
-
-function addMarker( lat, lng ) {
+function processPoint( lat, lng ) {
 
 	var marker = new google.maps.Marker( {
 		position: new google.maps.LatLng( lat, lng ),
 		map: map
 	});
+
+	getPlaces( lat, lng );
+
+	//localStorage.setItem( lat.toString() + ";" + lng.toString(), "0" );
 
 }
 
@@ -73,15 +74,15 @@ var step = 0.005;
 
 var nowLng = west, nowLat = north;
 var numberOfPoints = 0;
-var limit = 20;
+//var limit = 20;
 
 var interval = setInterval( function() {
 
 	// w->e, n->s
-	if( numberOfPoints >= limit ) {
+	/*if( numberOfPoints >= limit ) {
 		console.log( "limit!!!");
 		return;
-	}
+	}*/
 
 	if( nowLng < east ) {
 		nowLng += step; 
@@ -105,12 +106,12 @@ var interval = setInterval( function() {
 
 	}
 
-	console.log( nowLat, nowLng, numberOfPoint );
-	addMarker( nowLat, nowLng );
+	console.log( nowLat, nowLng, numberOfPoints );
+	processPoint( nowLat, nowLng );
 
 	numberOfPoints++;
 
-}, 10 );
+}, 500 );
 
 
 function end() {
