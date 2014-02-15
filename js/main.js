@@ -36,7 +36,8 @@ function getPlaces( lat, lng ) {
 
 			console.log( "success" );
 			console.log( data );
-			localStorage.setItem( lat.toString() + ";" + lng.toString(), JSON.stringify(data) );
+			//localStorage.setItem( lat.toString() + ";" + lng.toString(), JSON.stringify(data) );
+			storePoint( lat, lng, data );
 
 		}, 
 		error: function( xhr ) {
@@ -50,6 +51,28 @@ function getPlaces( lat, lng ) {
 
 	});
 
+
+}
+
+function storePoint( lat, lng, data ) {
+
+	$.ajax( {
+
+		url: "php/saveCsv.php",
+		type: "POST",
+		data: { data: data, lat:lat, lng:lng },
+		success: function( ) {
+
+			console.log( "success storing file " );
+
+		},
+		error: function( xhr ) {
+
+			console.error( xhr );
+
+		}
+
+	});
 
 }
 
@@ -74,13 +97,14 @@ var step = 0.005;
 
 var nowLng = west, nowLat = north;
 var numberOfPoints = 0;
-//var limit = 20;
+var limit = 10;
 
 var interval = setInterval( function() {
 
 	// w->e, n->s
 	/*if( numberOfPoints >= limit ) {
 		console.log( "limit!!!");
+		end();
 		return;
 	}*/
 
