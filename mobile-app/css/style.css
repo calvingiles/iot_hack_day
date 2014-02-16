@@ -9,6 +9,17 @@ html, body, #map {
 input[type=text] {
 	line-height: 40px; 
 	font-size: 17px;
+	display: block;
+	margin: 0 auto;
+}
+
+.logo {
+	background: url( "../img/logo-ink.svg" ) no-repeat;
+	background-size: contain;
+	width: 200px;
+	height: 10px;
+	display: inline-block;
+	margin: 10px;
 }
 
 #map {
@@ -22,6 +33,16 @@ input[type=text] {
     position: absolute;
 }
 
+.overlay-close-btn {
+	float: right;
+	width: 40px;
+	height: 40px;
+	background: url( "../img/close.svg") no-repeat;
+	background-size: contain;
+	margin-top: -20%;
+	margin-right: 10px;
+}
+
 .block-overlay {
 	position: absolute;
 	top: 0;
@@ -30,42 +51,64 @@ input[type=text] {
 	height: 100%;
 	background-color: #000000;
 	opacity: .6;
+	z-index: 10;
+}
+
+.overlay {
+	position: absolute;
+	top: calc(10% + 50px);
+	left: 5%;
+	height: calc(80% - 50px);
+	width: 90%;
+	background-color: #ffffff;
+	z-index: 1000;
+	text-align: center;
+
+	padding-top: 20%;
+	background-color: #ffdd4d;
+	border-radius: 5px;
+	border: 1px solid black;
 }
 
 .start-overlay {
-	position: absolute;
-	top: calc(10% + 50px);
-	left: 5%;
-	height: calc(80% - 50px);
-	width: 90%;
-	background-color: #ffffff;
-	z-index: 1000;
-	text-align: center;
-
-	padding-top: 20%;
-	background-color: #ffdd4d;
-	border-radius: 5px;
-	border: 1px solid black;
+	/*display: none;*/
 }
+	.start-overlay label{
+		font-size: 20px;
+		text-transform: uppercase;
+		display: block;
+	}
 
 .about-overlay {
-	position: absolute;
-	top: calc(10% + 50px);
-	left: 5%;
-	height: calc(80% - 50px);
-	width: 90%;
-	background-color: #ffffff;
-	z-index: 1000;
-	text-align: center;
+	display: none;
+	text-align: left;
+}
+	.about-overlay p {
+		padding: 20px;
+		letter-spacing: -.8px;
+	}
 
-	padding-top: 20%;
-	background-color: #ffdd4d;
-	border-radius: 5px;
-	border: 1px solid black;
-
+.result-overlay {
 	display: none;
 }
+	.result-overlay h1 {
+		margin-top: 50px;
+		font-size: 20px;
+		text-transform: uppercase;
+	}
+		.result-overlay h1 .number {
+			font-weight: bold;
+			font-size: 35px;
+		}
+	.result-overlay-popup {
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		bottom: 10px;
+		left: 10px;
 
+		display: none;
+	}
 
 .navbar-inverse {
 	background-color: #ffdd4d;
@@ -87,3 +130,75 @@ input[type=text] {
 .navbar-inverse .navbar-nav>li>a {
 	color: #27200d;
 }
+
+
+
+/* graph */
+/* tell the SVG path to be a thin blue line without any area fill */
+#graph path {
+	stroke: #27200d;
+	stroke-width: 2;
+	fill: none;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.x.axis line {
+  stroke: lightgrey;
+}
+
+.x.axis .minor {
+  stroke-opacity: .5;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.y.axis line, .y.axis path {
+  fill: none;
+  stroke: #000;
+}
+
+#graph {
+	text-align: center;
+	margin-top: -20px;
+}
+svg {
+	margin: 0 auto;
+}
+
+/**
+*	MUSTACHE
+**/
+
+.mustache {
+	width: 100px;
+	height: 100px;
+	background-size: contain;
+	margin: -19% auto;
+
+}
+.mustache1 { background: url( "../img/stache-1.svg" ) no-repeat; }
+.mustache2 { background: url( "../img/stache-2.svg" ) no-repeat; }
+.mustache3 { background: url( "../img/stache-3.svg" ) no-repeat; }
+.mustache4 { background: url( "../img/stache-4.svg" ) no-repeat; }
+.mustache5 { background: url( "../img/stache-5.svg" ) no-repeat; }
+
+.mustache-btn {
+	width: 50px;
+	height: 50px;
+	background-size: contain;
+}
+.mustache1-btn { background: url( "../img/stache-1-brand.svg" ) no-repeat; }
+.mustache2-btn { background: url( "../img/stache-2-brand.svg" ) no-repeat; }
+.mustache3-btn { background: url( "../img/stache-3-brand.svg" ) no-repeat; }
+.mustache4-btn { background: url( "../img/stache-4-brand.svg" ) no-repeat; }
+.mustache5-btn { background: url( "../img/stache-5-brand.svg" ) no-repeat; }
+
+/* temp */
+/*.start-overlay {
+	display: none;
+}*/
