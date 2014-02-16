@@ -93,12 +93,12 @@ input[type=text] {
 }
 	.result-overlay h1 {
 		margin-top: 50px;
-		font-size: 20px;
+		font-size: 18px;
 		text-transform: uppercase;
 	}
 		.result-overlay h1 .number {
 			font-weight: bold;
-			font-size: 35px;
+			font-size: 30px;
 		}
 	.result-overlay-popup {
 		width: 50px;

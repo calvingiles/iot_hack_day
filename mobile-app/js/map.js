@@ -196,19 +196,19 @@ function setLevel( level ) {
 		iconClass = "mustache1";
 		btnClass = "mustache1-btn";
 		comment = "Getting Hip";
-	} else if( level >= 2 && level < 4 ) {
+	} else if( level >= 4 && level < 6 ) {
 		iconClass = "mustache2";
 		btnClass = "mustache2-btn";
 		comment = "Rookie Hipster";
-	} else if( level >= 4 && level < 6 ) {
+	} else if( level >= 6 && level < 8 ) {
 		iconClass = "mustache3";
 		btnClass = "mustache3-btn";
 		comment = "Bonafide Hipster";
-	} else if( level >= 6 && level < 8 ) {
+	} else if( level >= 8 && level < 10 ) {
 		iconClass = "mustache4";
 		btnClass = "mustache4-btn";
 		comment = "Alpha Hipster";
-	} else if( level >= 8 && level < 8 ) {
+	} else if( level >= 10  ) {
 		iconClass = "mustache5";
 		btnClass = "mustache5-btn";
 		comment = "KING OF HIPSTERS";
@@ -264,7 +264,7 @@ function initGraph( data ) {
 		// Add an SVG element with the desired dimensions and margin.
 		var graph = d3.select("#graph").append("svg:svg")
 		      .attr("width", w + m[1] + m[3])
-		      .attr("height", h + m[0] + m[2])
+		      .attr("height", h + m[0] + m[2] - 30)
 		    .append("svg:g")
 		      .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
