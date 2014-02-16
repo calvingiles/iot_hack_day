@@ -118,7 +118,8 @@ function getRoute( from, to ) {
 
 	var url = "http://open.mapquestapi.com/directions/v2/route?key=" + mapQuestKey + "&ambiguities=ignore&routeType=pedestrian&from=" + from + "&to=" + to;
 
-	var url = "http://172.16.50.13:5000/route/" + from + "/" + to;
+	var url = "https://getlost.herokuapp.com/route/" + from + "/" + to;
+	//var url = "http://172.16.50.13:5000/route/" + from + "/" + to;
 
 	///total_rank: 10927.170510544487
 	//bject {hip_rank: Array[5382], route: Object, total_rank: 13940.236570026374}
