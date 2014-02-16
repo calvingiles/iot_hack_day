@@ -192,23 +192,23 @@ function setLevel( level ) {
 	var btnClass = "mustache1-btn";
 	var comment = "";
 
-	if( level < 2 ) {
+	if( level < 5 ) {
 		iconClass = "mustache1";
 		btnClass = "mustache1-btn";
 		comment = "Getting Hip";
-	} else if( level >= 4 && level < 6 ) {
+	} else if( level >= 5 && level < 11 ) {
 		iconClass = "mustache2";
 		btnClass = "mustache2-btn";
 		comment = "Rookie Hipster";
-	} else if( level >= 6 && level < 8 ) {
+	} else if( level >= 11 && level < 12.5 ) {
 		iconClass = "mustache3";
 		btnClass = "mustache3-btn";
 		comment = "Bonafide Hipster";
-	} else if( level >= 8 && level < 10 ) {
+	} else if( level >= 12.5 && level < 13.8 ) {
 		iconClass = "mustache4";
 		btnClass = "mustache4-btn";
 		comment = "Alpha Hipster";
-	} else if( level >= 10  ) {
+	} else if( level >= 13.8  ) {
 		iconClass = "mustache5";
 		btnClass = "mustache5-btn";
 		comment = "KING OF HIPSTERS";
@@ -241,7 +241,7 @@ function initGraph( data ) {
 	// X scale will fit all values from data[] within pixels 0-w
 	var x = d3.scale.linear().domain([0, data.length]).range([0, w + m[1]]);
 	// Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
-	var y = d3.scale.linear().domain([0, 10]).range([h, 0]);
+	var y = d3.scale.linear().domain([0, 20]).range([h, 0]);
 		// automatically determining max range can work something like this
 		// var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
 
