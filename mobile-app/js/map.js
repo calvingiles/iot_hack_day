@@ -107,7 +107,7 @@ function closePopup() {
 $aboutOverlay.hide();
 $blockOverlay.hide();
 $startOverlay.hide();*/
-initGraph();
+//initGraph();
 
 function getRoute( from, to ) {
 
@@ -118,12 +118,18 @@ function getRoute( from, to ) {
 
 	var url = "http://open.mapquestapi.com/directions/v2/route?key=" + mapQuestKey + "&ambiguities=ignore&routeType=pedestrian&from=" + from + "&to=" + to;
 
+	var url = "http://172.16.50.13:5000/route/" + from + "/" + to;
+
+	///total_rank: 10927.170510544487
+	//bject {hip_rank: Array[5382], route: Object, total_rank: 13940.236570026374}
+ 
+
 	console.log( url );
 
 	$.ajax( {
 
 		url: url,
-		dataType: "json",
+		dataType: "jsonp",
 		success: function( data ) {
 			console.log( "succes", data );
 			parseGetRouteResponse( data );
@@ -141,7 +147,7 @@ function parseGetRouteResponse( data ) {
 	routeStartPoints = [];
 	if( polyline ) map.removeLayer( polyline );
 
-	var route = data.route;
+	var route = data.route.route;
 	var legs = route.legs;
 	$.each( legs, function( i,leg ) {
 
@@ -165,9 +171,12 @@ function parseGetRouteResponse( data ) {
 	//show result
 	$blockOverlay.show();
 	$resultOverlay.show();
-	initGraph();
+	initGraph( data["hip_rank"]);
+
+	setLevel( data["total_rank"] );
 
 	$resultOverlayPopup.show();
+
 }
 
 function showResultOverlay() {
@@ -175,7 +184,7 @@ function showResultOverlay() {
 	$resultOverlay.show();
 }
 
-setLevel( 2 );
+//setLevel( 2 );
 
 function setLevel( level ) {
 
@@ -183,34 +192,29 @@ function setLevel( level ) {
 	var btnClass = "mustache1-btn";
 	var comment = "";
 
-	switch( level ) {
-
-		case 1:
-			iconClass = "mustache1";
-			btnClass = "mustache1-btn";
-			comment = "Getting Hip";
-			break;
-		case 2:
-			iconClass = "mustache2";
-			btnClass = "mustache2-btn";
-			comment = "Rookie Hipster";
-			break;
-		case 3:
-			iconClass = "mustache3";
-			btnClass = "mustache3-btn";
-			comment = "Bonafide Hipster";
-			break;
-		case 4:
-			iconClass = "mustache4";
-			btnClass = "mustache4-btn";
-			comment = "Alpha Hipster";
-			break;
-		case 5:
-			iconClass = "mustache5";
-			btnClass = "mustache5-btn";
-			comment = "KING OF HIPSTERS";
-			break;
+	if( level < 2 ) {
+		iconClass = "mustache1";
+		btnClass = "mustache1-btn";
+		comment = "Getting Hip";
+	} else if( level >= 2 && level < 4 ) {
+		iconClass = "mustache2";
+		btnClass = "mustache2-btn";
+		comment = "Rookie Hipster";
+	} else if( level >= 4 && level < 6 ) {
+		iconClass = "mustache3";
+		btnClass = "mustache3-btn";
+		comment = "Bonafide Hipster";
+	} else if( level >= 6 && level < 8 ) {
+		iconClass = "mustache4";
+		btnClass = "mustache4-btn";
+		comment = "Alpha Hipster";
+	} else if( level >= 8 && level < 8 ) {
+		iconClass = "mustache5";
+		btnClass = "mustache5-btn";
+		comment = "KING OF HIPSTERS";
 	}
+	
+	level = level.toFixed(2);
 
 	$resultOverlayPopup.addClass( btnClass );
 	$mustache.addClass( iconClass );
@@ -222,7 +226,7 @@ function setLevel( level ) {
 /* D3 */
 /* implementation heavily influenced by http://bl.ocks.org/1166403 */
 // define dimensions of graph
-function initGraph() {
+function initGraph( data ) {
 
 	var overlayWidth = $resultOverlay.width();
 	var overlayHeight = $resultOverlay.height();
@@ -232,7 +236,7 @@ function initGraph() {
 	var h = overlayHeight - m[0] - m[2]; // height
 
 	// create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
-	var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
+	//var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
 
 	// X scale will fit all values from data[] within pixels 0-w
 	var x = d3.scale.linear().domain([0, data.length]).range([0, w + m[1]]);
